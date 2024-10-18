@@ -1,4 +1,6 @@
 export default defineEventHandler((event) => {
+  console.log(1);
+  console.log(1);
   // 获取服务器信息，可以包括区域、环境变量等
   return {
     region: process.env.CF_REGION || "unknown", // Cloudflare Pages会自动设置一些环境变量

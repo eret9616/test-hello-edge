@@ -27,8 +27,14 @@ const color = useState(
   "color",
   () => colors[Math.floor(Math.random() * colors.length)]
 );
-// 使用 useFetch 调用 /api/getServerInfo API
-const { data: serverInfo, pending, error } = useFetch("/api/getServerInfo");
+
+if (process.client) {
+  // 使用 useFetch 调用 /api/getServerInfo API
+  const { data: serverInfo, pending, error } = useFetch("/api/getServerInfo");
+  console.log("===============");
+  console.log(serverInfo, pending, error);
+  console.log("===============");
+}
 </script>
 
 <template>
