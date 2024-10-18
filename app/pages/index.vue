@@ -1,6 +1,7 @@
 <script setup>
 import Component1 from "../components/Component1.vue";
 import Component2 from "../components/Component2.vue";
+import { useState, useFetch } from "#imports";
 
 const runtimeConfig = useRuntimeConfig();
 const colors = [
@@ -26,6 +27,8 @@ const color = useState(
   "color",
   () => colors[Math.floor(Math.random() * colors.length)]
 );
+// 使用 useFetch 调用 /api/getServerInfo API
+const { data: serverInfo, pending, error } = useFetch("/api/getServerInfo");
 </script>
 
 <template>
